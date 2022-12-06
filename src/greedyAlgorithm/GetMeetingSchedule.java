@@ -16,15 +16,25 @@ public class GetMeetingSchedule {
 			time[i][2]= time[i][1] -time[i][0];
 		}
 		
-		Arrays.sort(time, new Comparator<int[]>(){
-			@Override
-			public int compare(int[] o1, int[] o2) {
-		    	 if(o1[1] == o2[1]) {
-	                	 return o1[0] - o2[0];
-		    	 }else {
-		    		 return o1[1] - o2[1]; 
-		    	 }
-			}
+//		Arrays.sort(time, new Comparator<int[]>(){
+//			@Override
+//			public int compare(int[] o1, int[] o2) {
+//		    	 if(o1[1] == o2[1]) {
+//	                	 return o1[0] - o2[0];
+//		    	 }else {
+//		    		 return o1[1] - o2[1]; 
+//		    	 }
+//			}
+//		});
+		
+		Arrays.sort(time,(e1,e2) -> {
+			if(e1[1]==e2[1])
+//				return Integer.compare(e1[0], e2[0]);
+//				또는
+				return e1[0]-e2[0];
+			else
+//				return Integer.compare(e1[1], e2[1]);
+				return e1[1]-e2[1];
 		});
 		
 		int cmp =0,total=0;
