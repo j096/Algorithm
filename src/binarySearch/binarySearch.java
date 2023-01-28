@@ -19,18 +19,29 @@ public class binarySearch {
 		//1.정렬
 		Arrays.sort(nums);
 		//2.이분검색
-		int min = 0,max=nums.length-1;
+		int min = 0,max=N-1;
 		
-		for(int i=0;i<Math.sqrt(nums.length);i++) {
-			int mid=(min+max)/2;
+//		for(int i=0;i<Math.sqrt(nums.length);i++) {
+//			int mid=(min+max)/2;
+//			if(nums[mid]==M) {
+//				System.out.println(mid+1);
+//				break;
+//			}else if(nums[mid] > M) {
+//				max = mid-1;
+//			}else {
+//				min = mid+1;
+//			}
+//		}
+		
+		while(min<=max) {
+			int mid = (min+max)/2;
 			if(nums[mid]==M) {
 				System.out.println(mid+1);
 				break;
-			}else if(nums[mid] > M) {
+			}else if(nums[mid]>M)
 				max = mid-1;
-			}else {
+			else
 				min = mid+1;
-			}
 		}
 	}
 
