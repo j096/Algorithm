@@ -1,4 +1,4 @@
-package arraySearch;
+package array_search;
 
 import java.util.Scanner;
 

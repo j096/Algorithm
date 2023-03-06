@@ -1,4 +1,4 @@
-package greedyAlgorithm;
+package greedy_algorithm;
 
 import java.util.Collections;
 import java.util.Scanner;

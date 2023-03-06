@@ -1,4 +1,4 @@
-package binarySearch.decisionAlgorithm;
+package binary_search.decision_algorithm;
 
 import java.util.Scanner;
 

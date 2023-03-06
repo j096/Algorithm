@@ -1,44 +1,42 @@
 package recursive.dfs;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 
 public class test {
-	static int[] nums;
+	
+	static int[] move = {-1,1,5};
+	static int[] chk = new int[10001];
+	static int[] cnt = new int[10001];
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Scanner scanner = new Scanner(System.in);
-		int N = scanner.nextInt();
-		nums = new int[N];
-		int total = 0;
-		for(int i=0;i<N;i++) {
-			nums[i]=scanner.nextInt();
-			total += nums[i];
+		Scanner sc = new Scanner(System.in);
+		
+		int s = sc.nextInt();
+		int e = sc.nextInt();
+		
+		Queue<Integer> q = new LinkedList<>();
+		q.add(s);
+		chk[s]=1;
+		int pre = s;
+		while(!q.isEmpty()) {
+			for(int i=0;i<3;i++) {
+				int n = pre+move[i];
+				if(n> 0 && n< 10001 && chk[n]!=1) {
+					cnt[n] = cnt[pre]+1;
+					q.add(n);
+					chk[n]= 1;
+				}
+
+			}
+			pre = q.poll();
 		}
 		
-		int chk = DFS(0,0,total);
+		System.out.println(cnt[e]);
 		
-		if(chk == -1)
-			System.out.println("NO");
 	}
 	
-	public static int DFS(int i,int sum,int total) {
-		if(sum == total/2) {
-			System.out.println("YES");
-			return 1;
-		}
-		if(i==nums.length) {
-			return -1;
-		}
-		else {
-			int chk =DFS(i+1,sum+nums[i],total);
-			if(chk == 1)
-				return chk;
-			chk =DFS(i+1,sum,total);
-			if(chk == 1)
-				return chk;
-		}
-		
-		return -1;
-	}
 
 }
