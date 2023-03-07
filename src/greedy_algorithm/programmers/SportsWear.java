@@ -11,6 +11,7 @@ public class SportsWear {
         Arrays.sort(lost);
         Arrays.sort(reserve);
         
+        //여분을 가져온 학생이 도난당할 경우를 제외시켜줘야 한다(차집합)
         int st = 0;
         for(int i=0;i<lost.length;i++){
             for(int j=st;j<reserve.length;j++){
